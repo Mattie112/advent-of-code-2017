@@ -18,6 +18,10 @@ if ($file = fopen(__DIR__ . "/day4-input.txt", "rb")) {
 
         $words = [];
         foreach ($line as $word) {
+            // Quick and dirty, sort the word so we know duplicates even before we checked all words!
+            $word = str_split($word);
+            sort($word);
+            $word = implode("", $word);
             if (isset($words[$word])) {
                 continue 2;
             }
